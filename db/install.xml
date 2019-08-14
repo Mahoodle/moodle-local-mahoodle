@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="local/mahoodle/db" VERSION="20171102" COMMENT="XMLDB file for plugin local/mahoodle tables"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../lib/xmldb/xmldb.xsd"
+>
+  <TABLES>
+    <TABLE NAME="local_mahoodle_mah_notify" COMMENT="Information about notifications from Mahara">
+      <FIELDS>
+        <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+        <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" COMMENT="ID of the Moodle user receiving the notification"/>
+        <FIELD NAME="moodleid" TYPE="int" LENGTH="10" NOTNULL="true" COMMENT="Moodle message id, in whichever table it is in"/>
+        <FIELD NAME="isread" TYPE="int" LENGTH="1" NOTNULL="true" COMMENT="1 if the message is read in Moodle, 0 if not"/>
+        <FIELD NAME="maharaid" TYPE="int" LENGTH="10" NOTNULL="true"/>
+        <FIELD NAME="mnethost" TYPE="int" LENGTH="10" NOTNULL="true"/>
+        <FIELD NAME="notifytype" TYPE="char" LENGTH="50" NOTNULL="true"/>
+      </FIELDS>
+      <KEYS>
+        <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+      </KEYS>
+      <INDEXES>
+        <INDEX NAME="maharaid" UNIQUE="false" FIELDS="maharaid,mnethost"/>
+      </INDEXES>
+    </TABLE>
+  </TABLES>
+</XMLDB>
